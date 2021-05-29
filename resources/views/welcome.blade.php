@@ -108,7 +108,6 @@ http://www.tooplate.com/view/2111-pro-line
                                             <input type="number" class="form-control form-control-modify1" id="Y" name="Y">
                                         </div>
                                     </div>
-                                    <h6 class="mb-3 mt-5 aos-init aos-animate text-white" data-aos="fade" data-aos-delay="300">Khóa bí mật</h6>
                                     <a style="color:var(--primary-color);" action="auto-generate-key" class="btn custom-btn bordered mt-3 text-white" >Tạo khóa bất kỳ</a>
                          </div>
                          <div title="Mã hóa/giải mã" class="col-lg-12 col-md-12 mx-auto col-12" style="background: whitesmoke;">
