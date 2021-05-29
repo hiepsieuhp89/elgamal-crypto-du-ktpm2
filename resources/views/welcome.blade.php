@@ -97,7 +97,7 @@ http://www.tooplate.com/view/2111-pro-line
                                     <div class="row">
                                         <label for="X" class="text-white text-modify1 col-sm-2 col-form-label">X =</label>
                                         <div class="col-sm-10 mb-2">
-                                            <input type="number" class="form-control form-control-modify1" id="X" name="X" readonly="">
+                                            <input type="number" class="form-control form-control-modify1" id="X" name="X">
                                         </div>
                                         <label for="K" class="text-white text-modify1 col-sm-2 col-form-label">K =</label>
                                         <div class="col-sm-4 mb-2">
