@@ -53,7 +53,7 @@ http://www.tooplate.com/view/2111-pro-line
               <div class="collapse navbar-collapse" id="tmMainNav">
                 <ul class="navbar-nav mx-auto tm-navbar-nav">
                   <li class="nav-item active">
-                    <a class="nav-link" href="#rsa">Mã hóa RSA </a>
+                    <a class="nav-link" href="#elgamal">Chữ ký số Elgamal </a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#tutorial">Hướng dẫn</a>
@@ -70,26 +70,46 @@ http://www.tooplate.com/view/2111-pro-line
     </div>
 
   
-    <div class="container tm-features-section" id="rsa">
+    <div class="container tm-features-section" id="elgamal">
       <form id="key_generate_form">  
-        <div class="container" id="rsa">
+        <div class="container" id="elgamal">
                     <div class="row mr-0 mt-0 ml-0" style="padding: 5px;">
                         <div title="Tạo khóa" class="col-lg-12 col-md-12 mx-auto col-12" style="background: #454545;">
                           <div class="hero-text mt-4 mb-3 text-center">
 
-                                    <h6 class="mb-3 mt-3 aos-init aos-animate text-white" data-aos="fade" data-aos-delay="300">Tạo khóa</h6>
+                                    <h6 class="mb-3 mt-3 aos-init aos-animate text-white" data-aos="fade" data-aos-delay="300">Cặp khóa công khai</h6>
                                     <div class="row">
-                                        <label for="public_key" class="text-white text-modify1 col-sm-2 col-form-label">Khóa công khai :</label>
-                                        <div class="col-sm-10 mb-2">
-                                            <textarea rows="1" class="form-control form-control-modify1 key-update" id="public_key" name="public_key"></textarea>
+                                        <label for="P" class="text-white text-modify1 col-sm-2 col-form-label">P =</label>
+                                        <div class="col-sm-4 mb-2">
+                                            <input type="number" class="form-control form-control-modify1 key-update" id="P" name="P">
                                         </div>
-                                        <label for="private_key" class="text-white text-modify1 col-sm-2 col-form-label">Khóa bí mật :</label>
+                                        <label for="A" class="text-white text-modify1 col-sm-2 col-form-label">A =</label>
+                                        <div class="col-sm-4 mb-2">
+                                            <input type="number" class="form-control form-control-modify1 key-update" id="A" name="A">
+                                        </div>
+                                        <label for="D" class="text-white text-modify1 col-sm-2 col-form-label">D =</label>
                                         <div class="col-sm-10 mb-2">
-                                            <textarea rows="1" class="form-control form-control-modify1 key-update" id="private_key" name="private_key"></textarea>
+                                            <input type="number" class="form-control form-control-modify1" id="D" name="D" placeholder="">
                                         </div>
                                     </div>
+                                    <h6 class="mb-3 mt-5 aos-init aos-animate text-white" data-aos="fade" data-aos-delay="300">Khóa bí mật</h6>
+
+                                    <div class="row">
+                                        <label for="X" class="text-white text-modify1 col-sm-2 col-form-label">X =</label>
+                                        <div class="col-sm-10 mb-2">
+                                            <input type="number" class="form-control form-control-modify1" id="X" name="X" readonly="">
+                                        </div>
+                                        <label for="K" class="text-white text-modify1 col-sm-2 col-form-label">K =</label>
+                                        <div class="col-sm-4 mb-2">
+                                            <input type="number" class="form-control form-control-modify1" id="K" name="K">
+                                        </div>
+                                        <label for="Y" class="text-white text-modify1 col-sm-2 col-form-label">Y =</label>
+                                        <div class="col-sm-4 mb-2">
+                                            <input type="number" class="form-control form-control-modify1" id="Y" name="Y">
+                                        </div>
+                                    </div>
+                                    <h6 class="mb-3 mt-5 aos-init aos-animate text-white" data-aos="fade" data-aos-delay="300">Khóa bí mật</h6>
                                     <a style="color:var(--primary-color);" action="auto-generate-key" class="btn custom-btn bordered mt-3 text-white" >Tạo khóa bất kỳ</a>
-                          </div>
                          </div>
                          <div title="Mã hóa/giải mã" class="col-lg-12 col-md-12 mx-auto col-12" style="background: whitesmoke;">
                               <div class="hero-text mt-3 mb-3 text-center">
@@ -98,16 +118,18 @@ http://www.tooplate.com/view/2111-pro-line
                                             <h6 class="mb-2 mt-3 aos-init aos-animate" data-aos="fade" data-aos-delay="300">Mã hóa</h6>
                                             <div class="row">
                                                 <div class="mb-2 w-100">
-                                                  <label for="encrypt_doc" class="form-label float-start">Bản rõ</label>
+                                                  <label for="encrypt_file" class="form-label float-start">Chọn file chứa Văn bản cần ký</label>
+                                                  <input class="form-control" type="file" accept=".txt" id="encrypt_file" name="encrypt_file" insert-to="encrypt_doc">
+                                                </div>
+                                                <div class="mb-2 w-100">
+                                                  <label for="encrypt_doc" class="form-label float-start">Văn bản cần ký</label>
                                                   <textarea class="form-control" id="encrypt_doc" rows="1" name="encrypt_doc"></textarea>
                                                 </div>
                                                 <div class="mb-2 w-100">
-                                                  <label for="encrypt_md5" class="form-label float-start">Băm md5</label>
-                                                  <textarea class="form-control" id="encrypt_md5" rows="1" name="encrypt_md5"></textarea>
-                                                </div>
-                                                <div class="mb-2 w-100">
                                                   <label for="encrypt_encrypted_doc" class="form-label float-start">Chữ ký</label>
-                                                  <textarea class="form-control" id="encrypt_encrypted_doc" rows="1" name="encrypt_encrypted_doc"></textarea>
+                                                  <textarea class="form-control" id="encrypt_encrypted_doc" rows="4" name="encrypt_encrypted_doc">
+                                                    
+                                                  </textarea>
                                                 </div>
                                             </div>
                                             <a action="encrypt" style="color:var(--primary-color);" class="btn custom-btn bordered mt-3 text-white">Tạo chữ ký</a>
@@ -116,7 +138,11 @@ http://www.tooplate.com/view/2111-pro-line
                                             <h6 class="mb-2 mt-3 aos-init aos-animate" data-aos="fade" data-aos-delay="300">Giải mã</h6>
                                             <div class="row">
                                                 <div class="mb-2 w-100">
-                                                  <label for="decrypt_encrypted_doc" class="form-label float-start">Chữ ký nhận được</label>
+                                                  <label for="decrypt_file" class="form-label float-start">Chọn file chứa chữ ký</label>
+                                                  <input class="form-control" type="file" accept=".txt" id="decrypt_file" name="decrypt_file" insert-to="decrypt_encrypted_doc">
+                                                </div>
+                                                <div class="mb-2 w-100">
+                                                  <label for="decrypt_encrypted_doc" class="form-label float-start">Chữ ký</label>
                                                   <textarea class="form-control" id="decrypt_encrypted_doc" rows="1" name="decrypt_encrypted_doc"></textarea>
                                                 </div>
                                                 <div class="mb-2 w-100">
@@ -207,7 +233,7 @@ http://www.tooplate.com/view/2111-pro-line
                 var d = new FormData(document.getElementById('key_generate_form'));
                 $.ajax({
                     type : 'post',
-                    url : '{{ route('client.rsa.check') }}',
+                    url : '{{ route('client.elgamal.check') }}',
                     data : d,
                     contentType: false,
                     cache: false,
@@ -216,22 +242,13 @@ http://www.tooplate.com/view/2111-pro-line
                         initialResponse(res);
                     }
                 });
-            })
-            $('.form-control[name="encrypt_doc"').bind('keyup change input',function(){
-
-                $('.form-control[name="encrypt_file"').val('');
-
-                var md5 = CryptoJS.MD5($(this).val());
-
-                $('.form-control[name="encrypt_md5"').val(md5);
-
             })
             $('[action="encrypt"]').on('click',function(){
                 var d = new FormData(document.getElementById('key_generate_form'));
 
                 $.ajax({
                     type : 'post',
-                    url : '{{ route('client.rsa.encrypt') }}',
+                    url : '{{ route('client.elgamal.encrypt') }}',
                     data : d,
                     contentType: false,
                     cache: false,
@@ -241,6 +258,26 @@ http://www.tooplate.com/view/2111-pro-line
                     }
                 });
             })
+            $('.form-control[name="encrypt_file"').bind('change input',function(){
+
+                $('.form-control[name="encrypt_doc"').val("");
+
+            })
+            $('[type="file"]').on('change', function() {
+                var e = this;
+                var fr = new FileReader();
+
+                fr.onload = function(){
+
+                    $('.form-control[name="'+ $(e).attr('insert-to') +'"]').val(fr.result);
+                    
+                }
+                  
+                fr.readAsText(this.files[0]);
+            })
+
+            
+
             $.ajaxSetup({
                     headers:{
                         'X-CSRF-TOKEN' : '{{ csrf_token() }}'

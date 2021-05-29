@@ -14,21 +14,17 @@ class ElGamal extends Model
 
         //key set
 
-    	$this->X = isset(json_decode(base64_decode($input['private_key'], true))->X) ? json_decode(base64_decode($input['private_key'], true))->X : '';
+    	$this->X = $input['X'];
 
-        $this->Y = isset(json_decode(base64_decode($input['private_key'], true))->Y) ? json_decode(base64_decode($input['private_key'], true))->Y : '';
+        $this->Y = $input['Y'];
 
-        $this->K = isset(json_decode(base64_decode($input['private_key'], true))->K) ? json_decode(base64_decode($input['private_key'], true))->K : '';
+        $this->K = $input['K'];
 
-    	$this->P =isset(json_decode(base64_decode($input['public_key'], true))->P)? json_decode(base64_decode($input['public_key'], true))->P : '';
+    	$this->P = $input['P'];
 
-        $this->A = isset(json_decode(base64_decode($input['public_key'], true))->A)? json_decode(base64_decode($input['public_key'], true))->A : '';
+        $this->A = $input['A'];
 
-        $this->D = isset(json_decode(base64_decode($input['public_key'], true))->D)? json_decode(base64_decode($input['public_key'], true))->D : '';
-
-        $this->private_key = $input['private_key'];
-
-        $this->public_key = $input['public_key'];
+        $this->D = $input['D'];
 
         //encrypt and send
 
@@ -36,7 +32,7 @@ class ElGamal extends Model
 
         $this->decrypt_doc = $input['decrypt_doc'];
 
-        $this->encrypt_md5 = $input['encrypt_md5'];
+        $this->encrypt_sha1 = sha1($this->encrypt_doc);
 
         $this->encrypt_encrypted_doc = $input['encrypt_encrypted_doc']; // ban ma hoa gui di
 
@@ -245,8 +241,7 @@ class ElGamal extends Model
         if(trim($this->encrypt_doc) == "")
             return false;
         try{
-                $base64 = $this->encrypt_md5;
-
+                $base64 = $this->encrypt_sha1;
                 $mh_temp2 = [];
 
                 for ($i = 0; $i < strlen($base64); $i++)
@@ -305,7 +300,7 @@ class ElGamal extends Model
 
                     $this->decrypt_decrypted_doc = $str;
 
-                    if($this->decrypt_decrypted_doc == md5($this->decrypt_doc))
+                    if($this->decrypt_decrypted_doc == sha1($this->decrypt_doc))
 
                         return true;
 

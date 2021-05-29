@@ -17,7 +17,7 @@ Route::get('/', [App\Http\Controllers\indexController::class,'index'])->name('in
 
 Route::post('/key/generate', [App\Http\Controllers\indexController::class,'generateKey'])->name('client.key.generate');
 
-Route::post('/encrypt', [App\Http\Controllers\indexController::class,'encrypt'])->name('client.rsa.encrypt');
+Route::post('/encrypt', [App\Http\Controllers\indexController::class,'encrypt'])->name('client.elgamal.encrypt');
 
-Route::post('/check', [App\Http\Controllers\indexController::class,'check'])->name('client.rsa.check');
+Route::post('/check', [App\Http\Controllers\indexController::class,'check'])->name('client.elgamal.check');
 
