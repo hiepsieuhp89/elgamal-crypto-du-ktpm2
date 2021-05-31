@@ -87,33 +87,7 @@ class ElGamal extends Model
             return $ktx_;
         }
 
-    public function RSA_mod ($mx, $ex, $nx){
-        if(!is_numeric($mx) || !is_numeric($ex) || !is_numeric($nx)){
-            throw new Exception('Số sai');
-        }
-            //bình phương và nhân
-            //Chuyển e sang hệ nhị phân
-                $a = [];
-                $k = 0;
-                do{
-                    $a[$k] = $ex % 2;
-                    $k++;
-                    $ex = $ex / 2;
-                }while ($ex != 0);
-                //Quá trình lấy dư
 
-                $kq = 1;
-                for ($i = $k - 1; $i >= 0; $i--){
-
-                    $kq = ($kq * $kq) % $nx;
-                    if ($a[$i] == 1){
-                        $kq = ($kq * $mx) % $nx;
-                    }
-
-                }
-                return $kq;
-            
-    }
     public function kiemTraUocCuaSoP($so_P, $so_Q)
         {
             $kt_Okie = true;

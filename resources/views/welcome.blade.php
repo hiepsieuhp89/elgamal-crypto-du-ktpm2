@@ -83,11 +83,11 @@ http://www.tooplate.com/view/2111-pro-line
                                         <div class="col-sm-4 mb-2">
                                             <input type="number" class="form-control form-control-modify1 key-update" id="P" name="P">
                                         </div>
-                                        <label for="A" class="text-white text-modify1 col-sm-2 col-form-label">A =</label>
+                                        <label for="A" class="text-white text-modify1 col-sm-2 col-form-label">số A (Alpha) =</label>
                                         <div class="col-sm-4 mb-2">
                                             <input type="number" class="form-control form-control-modify1 key-update" id="A" name="A">
                                         </div>
-                                        <label for="D" class="text-white text-modify1 col-sm-2 col-form-label">D =</label>
+                                        <label for="D" class="text-white text-modify1 col-sm-2 col-form-label">số D (Beta) =</label>
                                         <div class="col-sm-10 mb-2">
                                             <input type="number" class="form-control form-control-modify1" id="D" name="D" placeholder="">
                                         </div>
@@ -99,11 +99,11 @@ http://www.tooplate.com/view/2111-pro-line
                                         <div class="col-sm-10 mb-2">
                                             <input type="number" class="form-control form-control-modify1" id="X" name="X">
                                         </div>
-                                        <label for="K" class="text-white text-modify1 col-sm-2 col-form-label">K =</label>
+                                        <label for="K" class="text-white text-modify1 col-sm-2 col-form-label">Số ngẫu nhiên K =</label>
                                         <div class="col-sm-4 mb-2">
                                             <input type="number" class="form-control form-control-modify1" id="K" name="K">
                                         </div>
-                                        <label for="Y" class="text-white text-modify1 col-sm-2 col-form-label">Y =</label>
+                                        <label for="Y" class="text-white text-modify1 col-sm-2 col-form-label">Y (=A^K mod P) =</label>
                                         <div class="col-sm-4 mb-2">
                                             <input type="number" class="form-control form-control-modify1" id="Y" name="Y">
                                         </div>
