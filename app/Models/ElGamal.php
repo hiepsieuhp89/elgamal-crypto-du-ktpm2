@@ -169,14 +169,17 @@ class ElGamal extends Model
             }
             while (!$this->kiemTraPTSinh($this->G_A, $this->P, $this->Q));
 
+            if(!($this->A > 0))
+                $this->A = $this->LuyThuaModulo_($this->G_A, ($this->P - 1) / $this->Q, $this->P); // phần tử sinh
 
-            $this->A = $this->LuyThuaModulo_($this->G_A, ($this->P - 1) / $this->Q, $this->P); // phần tử sinh
-
-            do
-            {
-                $this->X = rand(2, $this->P - 2);
+            if(!($this->X > 0)){
+                do
+                {
+                    $this->X = rand(2, $this->P - 2);
+                }
+                while ($this->X == $this->Q || $this->X == $this->G_A);
             }
-            while ($this->X == $this->Q || $this->X == $this->G_A);
+
 
             // d= a^x mod P
             $this->D = $this->LuyThuaModulo_($this->A, $this->X, $this->P);// beta; d          
@@ -198,12 +201,18 @@ class ElGamal extends Model
         }   
 
     public function khoitao(){
+        if(($this->P > 0)){
+            if(!$this->kiemtrasonguyento($this->P))
+                return false;
 
-    	do{
+        }
+        else{
+            do{
 
-    		$this->P = rand(255, 400);
+                $this->P = rand(255, 400);
 
-    	}while(!$this->kiemtrasonguyento($this->P));
+            }while(!$this->kiemtrasonguyento($this->P));
+        }
 
     	   $this->taokhoa();
 
